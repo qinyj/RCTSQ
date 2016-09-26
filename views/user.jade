@@ -1,0 +1,19 @@
+//
+   Created by qinyj on 8/11/2016.
+extends layout
+block content
+    main.main
+        section.intro
+            h1.welcome Welcome #{loginuser} to RCTS.
+            p.upload Upload your resume from local:
+                br
+                form.upform(action='upload' method='post' enctype='multipart/form-data')
+                    input(type='file', name='upload' size='50')
+                    br
+                    br
+                    input(type='submit' name='sub' value='submit')
+        br
+        section.userpaste
+            h1.welcome your resume:
+            p.output space for userdoc
+            p.output #{userdoc}

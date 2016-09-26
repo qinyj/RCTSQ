@@ -1,0 +1,35 @@
+extends layout
+block content
+  main.main
+    section.intro
+      if message
+        h3.indexmes #{message}
+      if loginuser
+        h1.welcome Welcome #{loginuser} to RCTS.success
+      else
+        h1.welcome Welcome to RCTS.not login
+      h3.tech RCTS is short for Resume Conversion and Translation System.
+      br
+      p.btnlist
+        if loginuser
+          a.login(href='/upload') Upload
+          a.login(href='/logout') Logout
+        else
+          a.login(href='/login') Login
+          a.register(href='/reg') Regist
+//    section.upload
+      p.upload upload you resume from local:
+      input.upload(
+        type='text'
+        name='uploadfile'
+      )
+      input(
+        type='submit'
+        value='Browse'
+      )
+//    section.show
+      each val in posts
+        article.col
+          h3.author #{val.user}说
+          p
+            | #{val.post}

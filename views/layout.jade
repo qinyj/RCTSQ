@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.header
+      ul.list
+        li.logo
+          a(href='/') RCTS
+        li
+          a(href='/') Home
+        if loginuser
+          li
+            a(href='/user') #{loginuser}
+        else
+          li
+            a(href='/login') Login
+          li
+            a(href='/reg') Regist
+        li
+          a(href='/contact') Contact
+    div.container
+      block content
+      hr
+      footer.footer
+        p By SPRT team
